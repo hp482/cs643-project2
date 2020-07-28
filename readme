@@ -12,7 +12,7 @@ Training Environment:
 
 Amazon ECM, 4 worker nodes m5.xlarge,  with Jupyter.    
  
-
+![Image of Cluster](https://github.com/hp482/cs643-project2/blob/master/cluster.jpg)
 Prediction Environment: 
 
 To run in docker 
