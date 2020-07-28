@@ -11,6 +11,7 @@
 
 import sys
 import shutil
+from pyspark.ml.evaluation import RegressionEvaluator
 from pyspark.ml.regression import LinearRegressionModel
 from pyspark.ml.feature import VectorAssembler
 from pyspark.sql import SparkSession
@@ -77,9 +78,24 @@ def main():
 	# predict the quality
 	predictions = loadedRegressor.transform(valid_finalized_data)
 	
+	
+
+	eval = RegressionEvaluator(labelCol= validationdataset.columns[11], predictionCol="prediction", metricName="rmse")
+	# Root Mean Square Error
+	rmse = eval.evaluate(predictions)
+	print("RMSE: %.3f" % rmse)
+	# Mean Square Error
+	mse = eval.evaluate(predictions, {eval.metricName: "mse"})
+	print("MSE: %.3f" % mse)
+	# Mean Absolute Error
+	mae = eval.evaluate(predictions, {eval.metricName: "mae"})
+	print("MAE: %.3f" % mae)
+	# r2 - coefficient of determination
+	r2 = eval.evaluate(predictions, {eval.metricName: "r2"})
+	print("r2: %.3f" %r2)
+
+	
 	# display results
 	predictions.show(2000,  truncate = False)  # we could do this on a row count rather than 2000, but what if we end up with million row model somehow
 
-
-if __name__== "__main__":
-   main()
+	
