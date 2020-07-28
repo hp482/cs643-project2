@@ -1,11 +1,9 @@
-########################################################################################################
-# 
 #  Harry Polishook hp482@njit.edu
 #  CS643 Summer 2020 
 #  Project 2
-#
-# ########################################################################################################
+
 Github: https://github.com/hp482/cs643-project2
+
 Docker Container: https://hub.docker.com/repository/docker/hp482/cs643
 
 Training Environment: 
@@ -13,6 +11,8 @@ Training Environment:
 Amazon ECM, 4 worker nodes m5.xlarge,  with Jupyter.    
  
 ![Image of Cluster](https://github.com/hp482/cs643-project2/blob/master/cluster.jpg)
+
+
 Prediction Environment: 
 
 To run in docker 
