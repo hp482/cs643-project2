@@ -18,12 +18,14 @@ Prediction Environment:
 ### To run in docker 
 Docker pull hp482/cs643:1  
 
-Windows: docker run --rm  -v "%cd%":/data  hp482/cs643:1  <filename>
+Filename is expected to be in the current directory. 
 
-Linux: docker run --rm -v $(pwd):/data hp482/cs643:1 <filename>
+Windows: docker run --rm  -v "%cd%":/data  hp482/cs643:1  filename
+
+Linux: docker run --rm -v $(pwd):/data hp482/cs643:1 filename
 
 ### To run stand-alone:
 
 Application requires python, pyspark, spark 2.4.6, Hadoop 2.7.3, AWS Java SDK 1.7.4, numpy  and supporting installations.   
 
-cs643.py  <Dataset.csv>
+cs643.py  filename
